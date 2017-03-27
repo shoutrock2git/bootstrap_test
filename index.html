@@ -13,38 +13,38 @@
     <script src="js/jquery-3.2.0.min.js"></script>
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <h1>Hello World!!</h1>
-    <li>あ</li>
-    <li>い</li>
-    <li>う</li>
-    <li>え</li>
-    <li>お</li>
 
     <script type="text/javascript">
-    $(function(){
+      msg = new Array("a", "b", "c", "d", "e");
+      timerID = 10;
+      count = 0;
+      function rndText()
+      {
+        document.myForm.myText.value = msg[count++];
+          clearTimeout(timerID);
+          if (count < msg.length) timerID = setTimeout("rndText()",500);
+      }
 
-      var array = ['a','b','c','d','e'];
-      // console.log(str);
-      // console.log(array[0]);
-
-      $.each(array, function(i,val){
-           document.write(val,"<br>");
-      });
-
-      // $("p").hide();
-      // $("p").delay(1000).fadeIn(100);
-      // $("p").delay(1000).fadeOut(100);
-
-      // var arr = [ "apple", "orange", "grape" ];
-      // $.each(arr, function(i, val) {
-      //     console.log(val);
-      // });
-
-    });
-
+      // for (i = 0; i < arr.length; i++) {
+      //
+      //   document.write('<div id=te>' + arr[i] + '</div>');
+      //   //document.write('<br>');
+      //   //$('p').hide();
+      //   //$('div').delay(1000).fadeIn(1000);
+      //   $('div').delay(1000).fadeOut(1000);
+      //
+      // }
+      
     </script>
+
+  </head>
+  <body onLoad="rndText()">
+    <h1>Hello World!!</h1>
+
+    <form name="myForm">
+    <input type="text" name="myText">
+    </form>
+
 
   </body>
 
